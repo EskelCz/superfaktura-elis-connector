@@ -32,7 +32,7 @@ curl -H 'Authorization: token ....' -H 'Content-Type: application/json' \
 
 # Schema
 Elis allows to you customize which data points are extracted and which are shown for human users for validation.
-This is distinguished by attibute `hidden: true|false`. For reference I've added the schema which I use, in example-schema.json.
+This is distinguished by attibute `hidden: true|false`. For reference I've added the schema which I use, in [example-schema.json](example-schema.json).
 Read more on the topic here: https://api.elis.rossum.ai/docs/#document-schema
 
 # Notes
