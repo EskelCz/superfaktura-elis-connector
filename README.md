@@ -4,14 +4,14 @@ Export your invoice data from Rossum Elis to Superfaktura.cz expenses.
 
 ### Installing
 
-1. Fill Superfaktura credentials and Elis secret code to connector.js, in credentials section
+1. Fill Superfaktura credentials and Elis secret code to connector.js
 2. Host a node.js server
 3. Deploy and run connector.js there (dont forget to install packages with yarn or npm)
 4. Add connector url to Elis (https://api.elis.rossum.ai/docs/#setup-a-connector)
 5. Profit :)
 
 # How to add to Elis
-Authenticate with terminal and get a authorization token.
+Authenticate with terminal and get an authorization token.
 Fill your real data into all these: `....`
 ```
 curl -s -H 'Content-Type: application/json' \
