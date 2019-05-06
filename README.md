@@ -11,21 +11,22 @@ Export your invoice data from Rossum Elis to Superfaktura.cz expenses.
 5. Profit :)
 
 # How to add to Elis
-Authenticate with terminal
+Authenticate with terminal and get a authorization token.
+Fill your real data into all these: `....`
 ```
 curl -s -H 'Content-Type: application/json' \
-  -d '{"username": "...", "password": "..."}' \
+  -d '{"username": "....", "password": "...."}' \
   'https://api.elis.rossum.ai/v1/auth/login'
 ```
 Get queue list, so you know your queue IDs
 ```
-curl -H 'Authorization: token 00e2818aba72e3e2a04810530b032531597dd392' \
+curl -H 'Authorization: token ....' \
   'https://api.elis.rossum.ai/v1/queues?workspace=8194&ordering=name'
 ```
 Add your deployed connector
 ```
-curl -H 'Authorization: token 6e9fafc31dbbffb8479df1f622c0c3f5eb120931' -H 'Content-Type: application/json' \
-  -d '{"name": "SF Connector", "queues": ["https://api.elis.rossum.ai/v1/queues/####"], "service_url": "https://path-to-your-server.com", "authorization_token":"..."}' \
+curl -H 'Authorization: token ....' -H 'Content-Type: application/json' \
+  -d '{"name": "SF Connector", "queues": ["https://api.elis.rossum.ai/v1/queues/...."], "service_url": "https://path-to-your-server.com", "authorization_token":"...."}' \
   'https://api.elis.rossum.ai/v1/connectors'
 ```
 
