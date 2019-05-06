@@ -10,7 +10,7 @@ Export your invoice data from Rossum Elis to Superfaktura.cz expenses.
 4. Add connector url to Elis (https://api.elis.rossum.ai/docs/#setup-a-connector)
 5. Profit :)
 
-# Example code for Elis
+# How to add to Elis
 Authenticate with terminal
 ```
 curl -s -H 'Content-Type: application/json' \
