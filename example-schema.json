@@ -1,0 +1,377 @@
+{
+   "id": 11111,
+   "name": "ExampleSchema",
+   "queues": [
+      "https://api.elis.rossum.ai/v1/queues/11111"
+   ],
+   "url": "https://api.elis.rossum.ai/v1/schemas/11111",
+   "content": [
+      {
+         "category": "section",
+         "id": "invoice_info_section",
+         "label": "Základní informace",
+         "children": [
+            {
+               "category": "datapoint",
+               "id": "invoice_type",
+               "label": "Typ faktury",
+               "type": "enum",
+               "options": [
+                  {
+                     "label": "Faktura přijatá",
+                     "value": "tax_invoice"
+                  },
+                  {
+                     "label": "Zálohová faktura (proforma)",
+                     "value": "proforma"
+                  },
+                  {
+                     "label": "Přijatý dobropis",
+                     "value": "credit_note"
+                  },
+                  {
+                     "label": "Vydaný dobropis",
+                     "value": "debit_note"
+                  },
+                  {
+                     "label": "Jiné",
+                     "value": "other"
+                  }
+               ],
+               "constraints": {
+                  "required": false
+               },
+               "width_chars": 15,
+               "default_value": "tax_invoice",
+               "rir_field_names": [
+                  "invoice_type"
+               ]
+            },
+            {
+               "category": "datapoint",
+               "id": "date_issue",
+               "label": "Datum vystavení",
+               "type": "date",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "date_issue"
+               ],
+               "constraints": {
+                  "required": true
+               },
+               "default_value": null,
+               "format": "D.M.YYYY"
+            },
+            {
+               "category": "datapoint",
+               "id": "date_due",
+               "label": "Datum splatnosti",
+               "type": "date",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "date_due"
+               ],
+               "constraints": {
+                  "required": true
+               },
+               "default_value": null,
+               "format": "D.M.YYYY"
+            },
+            {
+               "category": "datapoint",
+               "id": "var_sym",
+               "label": "Variabilní symbol",
+               "type": "string",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "var_sym"
+               ],
+               "constraints": {
+                  "required": true
+               },
+               "default_value": null
+            },
+            {
+               "category": "datapoint",
+               "id": "amount_total",
+               "label": "Celková částka s DPH",
+               "type": "number",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "amount_due",
+                  "amount_total"
+               ],
+               "constraints": {
+                  "required": true
+               },
+               "default_value": null,
+               "format": "# ##0.#"
+            },
+            {
+               "category": "datapoint",
+               "id": "invoice_id",
+               "label": "Číslo dokladu",
+               "type": "string",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "invoice_id",
+                  "var_sym"
+               ],
+               "constraints": {
+                  "required": false
+               },
+               "default_value": null,
+               "hidden": true
+            },
+            {
+               "category": "datapoint",
+               "id": "order_id",
+               "label": "Číslo objednávky",
+               "type": "string",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "order_id"
+               ],
+               "constraints": {
+                  "required": false
+               },
+               "default_value": null,
+               "hidden": true
+            },
+            {
+               "category": "datapoint",
+               "id": "date_uzp",
+               "label": "Datum zdanitelného plnění",
+               "type": "date",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "date_uzp"
+               ],
+               "constraints": {
+                  "required": false
+               },
+               "default_value": null,
+               "format": "D.M.YYYY",
+               "hidden": true
+            },
+            {
+               "category": "datapoint",
+               "id": "const_sym",
+               "label": "Konstantní symbol",
+               "type": "string",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "const_sym"
+               ],
+               "constraints": {
+                  "required": false
+               },
+               "default_value": null,
+               "hidden": true
+            },
+            {
+               "category": "datapoint",
+               "id": "spec_sym",
+               "label": "Specifický symbol",
+               "type": "string",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "spec_sym"
+               ],
+               "constraints": {
+                  "required": false
+               },
+               "default_value": null,
+               "hidden": true
+            }
+         ],
+         "icon": null
+      },
+      {
+         "category": "section",
+         "id": "vendor_section",
+         "label": "Dodavatel",
+         "children": [
+            {
+               "category": "datapoint",
+               "id": "sender_name",
+               "label": "Jméno",
+               "type": "string",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "sender_name"
+               ],
+               "constraints": {
+                  "required": true
+               },
+               "default_value": null
+            },
+            {
+               "category": "datapoint",
+               "id": "sender_ic",
+               "label": "IČO",
+               "type": "string",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "sender_ic"
+               ],
+               "constraints": {
+                  "required": true
+               },
+               "default_value": null
+            },
+            {
+               "category": "datapoint",
+               "id": "account_num",
+               "label": "Číslo účtu",
+               "type": "string",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "account_num"
+               ],
+               "constraints": {
+                  "required": true
+               },
+               "default_value": null
+            },
+            {
+               "category": "datapoint",
+               "id": "bank_num",
+               "label": "Kód banky",
+               "type": "string",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "bank_num"
+               ],
+               "constraints": {
+                  "length": {
+                     "exact": 4
+                  },
+                  "required": true
+               },
+               "default_value": null
+            },
+            {
+               "category": "datapoint",
+               "id": "sender_address",
+               "label": "Adresa",
+               "type": "string",
+               "width_chars": 20,
+               "rir_field_names": [
+                  "sender_address"
+               ],
+               "constraints": {
+                  "required": false
+               },
+               "default_value": null,
+               "hidden": true
+            },
+            {
+               "category": "datapoint",
+               "id": "iban",
+               "label": "IBAN",
+               "type": "string",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "iban"
+               ],
+               "constraints": {
+                  "required": false
+               },
+               "default_value": null,
+               "hidden": true
+            },
+            {
+               "category": "datapoint",
+               "id": "bic",
+               "label": "BIC/SWIFT",
+               "type": "string",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "bic"
+               ],
+               "constraints": {
+                  "required": false
+               },
+               "default_value": null,
+               "hidden": true
+            },
+            {
+               "category": "datapoint",
+               "id": "amount_total_tax",
+               "label": "Celková suma DPH",
+               "type": "number",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "amount_total_tax"
+               ],
+               "constraints": {
+                  "required": false
+               },
+               "default_value": null,
+               "format": "# ##0.#",
+               "hidden": true
+            },
+            {
+               "category": "datapoint",
+               "id": "amount_total_base",
+               "label": "Celková částka bez DPH",
+               "type": "number",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "amount_total_base"
+               ],
+               "constraints": {
+                  "required": false
+               },
+               "default_value": null,
+               "format": "# ##0.#",
+               "hidden": true
+            },
+            {
+               "category": "datapoint",
+               "id": "currency",
+               "label": "Měna",
+               "type": "string",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "currency"
+               ],
+               "constraints": {
+                  "required": false
+               },
+               "default_value": null,
+               "hidden": true
+            },
+            {
+               "category": "datapoint",
+               "id": "sender_dic",
+               "label": "DIČ dodavatele",
+               "type": "string",
+               "width_chars": 10,
+               "rir_field_names": [
+                  "sender_dic"
+               ],
+               "constraints": {
+                  "required": false
+               },
+               "default_value": null,
+               "hidden": true
+            },
+            {
+               "category": "datapoint",
+               "id": "notes",
+               "label": "Poznámka",
+               "type": "string",
+               "width_chars": 10,
+               "rir_field_names": [],
+               "constraints": {
+                  "required": false
+               },
+               "default_value": null
+            }
+         ],
+         "icon": null
+      }
+   ]
+}
