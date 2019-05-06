@@ -1,7 +1,7 @@
 {
   "name": "superfaktura-elis-connector",
   "version": "0.0.1",
-  "description": "Rossum Elis to Superfaktura.cz connector",
+  "description": "Export data from Rossum Elis to Superfaktura.cz",
   "main": "connector.js",
   "author": "David Eskel Spohr",
   "license": "MIT",
