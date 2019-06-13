@@ -10,10 +10,13 @@ const OPTIONAL = true
 app.use(bodyParser.json())
 app.use(morgan('combined'))
 
-// Credentials
+// Credentials (SF is SuperFaktura)
 
 const SFuser = ''
 const SFpassword = ''
+const SFemail = ''
+const SFapikey = ''
+const SFcompanyID = ''
 const ElisSecret = 'secret_key ...'
 
 // Helpers
@@ -197,11 +200,13 @@ app.post('/save', async (req, res) => {
 const sendToSF = (res, data, doc) => {
   console.log('Sending data: ', data)
   if (doc) { data['Expense'].attachment = doc }
+  const authorizationData = encodeURIComponent('email=' + SFemail + '&apikey=' + SFapikey + '&company_id=' + SFcompanyID)
+
   fetch('https://moje.superfaktura.cz/expenses/add', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-      'Authorization': 'SFAPI email=spohrova%40seznam.cz&apikey=7b33981d56646810da778a156434ee5b&company_id=25295'
+      'Authorization': 'SFAPI ' + authorizationData
     },
     body: 'data=' + JSON.stringify(data)
   })
