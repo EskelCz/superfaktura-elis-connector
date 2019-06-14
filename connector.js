@@ -200,7 +200,7 @@ app.post('/save', async (req, res) => {
 const sendToSF = (res, data, doc) => {
   console.log('Sending data: ', data)
   if (doc) { data['Expense'].attachment = doc }
-  const authorizationData = encodeURIComponent('email=' + SFemail + '&apikey=' + SFapikey + '&company_id=' + SFcompanyID)
+  const authorizationData = 'email=' + encodeURIComponent(SFemail) + '&apikey=' + encodeURIComponent(SFapikey) + '&company_id=' + encodeURIComponent(SFcompanyID)
 
   fetch('https://moje.superfaktura.cz/expenses/add', {
     method: 'POST',
