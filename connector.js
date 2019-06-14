@@ -12,8 +12,8 @@ app.use(morgan('combined'))
 
 // Credentials (SF is SuperFaktura)
 
-const SFuser = ''
-const SFpassword = ''
+const ElisUser = ''
+const ElisPassword = ''
 const SFemail = ''
 const SFapikey = ''
 const SFcompanyID = ''
@@ -185,7 +185,7 @@ app.post('/save', async (req, res) => {
   // get original document
   const docPath = req.body.meta.original_file
   const cleanPath = docPath.slice(8) // removing https://
-  const authPath = 'https://' + SFuser + ':' + SFpassword + '@' + cleanPath
+  const authPath = 'https://' + ElisUser + ':' + ElisPassword + '@' + cleanPath
 
   try {
     const fileRes = await fetch(authPath, { credentials: 'include' })
@@ -200,7 +200,7 @@ app.post('/save', async (req, res) => {
 const sendToSF = (res, data, doc) => {
   console.log('Sending data: ', data)
   if (doc) { data['Expense'].attachment = doc }
-  const authorizationData = encodeURIComponent('email=' + SFemail + '&apikey=' + SFapikey + '&company_id=' + SFcompanyID)
+  const authorizationData = 'email=' + encodeURIComponent(SFemail) + '&apikey=' + encodeURIComponent(SFapikey) + '&company_id=' + encodeURIComponent(SFcompanyID)
 
   fetch('https://moje.superfaktura.cz/expenses/add', {
     method: 'POST',
