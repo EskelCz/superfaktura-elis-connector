@@ -12,8 +12,8 @@ app.use(morgan('combined'))
 
 // Credentials (SF is SuperFaktura)
 
-const SFuser = ''
-const SFpassword = ''
+const ElisUser = ''
+const ElisPassword = ''
 const SFemail = ''
 const SFapikey = ''
 const SFcompanyID = ''
@@ -185,7 +185,7 @@ app.post('/save', async (req, res) => {
   // get original document
   const docPath = req.body.meta.original_file
   const cleanPath = docPath.slice(8) // removing https://
-  const authPath = 'https://' + SFuser + ':' + SFpassword + '@' + cleanPath
+  const authPath = 'https://' + ElisUser + ':' + ElisPassword + '@' + cleanPath
 
   try {
     const fileRes = await fetch(authPath, { credentials: 'include' })
