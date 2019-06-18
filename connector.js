@@ -18,6 +18,9 @@ const SFemail = ''
 const SFapikey = ''
 const SFcompanyID = ''
 const ElisSecret = 'secret_key ...'
+// change to "https://moja.superfaktura.sk" if you use Slovak version of SuperFaktura
+const SFbaseUrl = 'https://moje.superfaktura.cz'
+
 
 // Helpers
 
@@ -202,7 +205,7 @@ const sendToSF = (res, data, doc) => {
   if (doc) { data['Expense'].attachment = doc }
   const authorizationData = 'email=' + encodeURIComponent(SFemail) + '&apikey=' + encodeURIComponent(SFapikey) + '&company_id=' + encodeURIComponent(SFcompanyID)
 
-  fetch('https://moje.superfaktura.cz/expenses/add', {
+  fetch(SFbaseUrl + '/expenses/add', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
