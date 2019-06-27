@@ -71,12 +71,15 @@ const sanitizeCurrency = (value) => {
 }
 
 const sanitizeNumber = (value) => {
-  if (value instanceof String) { return parseFloat(value.replace(/\s/g, '')) }
+  if (value instanceof String) { return parseFloat(value.replace(/\s/g, '')) } // remove any white space
   return value
 }
 
 const sanitizeString = (value) => {
-  if (typeof value === 'string') { return encodeURIComponent(value) }
+  if (typeof value === 'string') {
+    const singleLine = value.replace(/(\r\n|\n|\r)/gm, ', ') // replace new lines with comma and space
+    return encodeURIComponent(singleLine)
+  }
   return value
 }
 
