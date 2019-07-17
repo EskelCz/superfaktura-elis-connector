@@ -21,7 +21,6 @@ const ElisSecret = 'secret_key ...'
 // change to "https://moja.superfaktura.sk" if you use Slovak version of SuperFaktura
 const SFbaseUrl = 'https://moje.superfaktura.cz'
 
-
 // Helpers
 
 const findAllValues = (value, data) => {
@@ -54,15 +53,14 @@ const findValue = (value, data, optional) => {
 }
 
 const invoiceTypeTable = {
-  'tax_invoice': 'regular', // bežná daňová faktura
-  'debit_note': 'cancel', // námi vystavený dobropis, opravný daňový doklad, není evidován v nákladech
-  'credit_note': 'cancel', // námi přijatý dobropis, opravný daňový doklad
-  'proforma': 'proforma', // zálohová faktura
-  'other': 'draft' // jiné, koncept
+  'tax_invoice': 'invoice', // bežná daňová faktura
+  'credit_note': 'recieved_credit_note', // námi přijatý dobropis, opravný daňový doklad
+  'proforma': 'invoice', // zálohová faktura
+  'other': 'invoice' // jiné, koncept
 }
 
 const findInvoiceType = (elisType) => {
-  return invoiceTypeTable[elisType] ? invoiceTypeTable[elisType] : 'regular'
+  return invoiceTypeTable[elisType] ? invoiceTypeTable[elisType] : Error('Not an expense type: ' + elisType)
 }
 
 const sanitizeCurrency = (value) => {
